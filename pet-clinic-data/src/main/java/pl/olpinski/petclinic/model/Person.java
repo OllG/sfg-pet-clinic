@@ -1,6 +1,6 @@
 package pl.olpinski.petclinic.model;
 
-public class Person {
+public class Person extends BaseEntity {
     private String firstName;
 
     public String getFirstName() {

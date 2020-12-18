@@ -30,6 +30,8 @@
             <optional>true</optional>
         </dependency>
     </dependencies>
-
+    <properties>
+        <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
+    </properties>
 
 </project>

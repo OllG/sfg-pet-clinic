@@ -3,10 +3,7 @@ package pl.olpinski.petclinic.bootstrap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import pl.olpinski.petclinic.model.*;
-import pl.olpinski.petclinic.services.OwnerService;
-import pl.olpinski.petclinic.services.PetTypeService;
-import pl.olpinski.petclinic.services.SpecialityService;
-import pl.olpinski.petclinic.services.VetService;
+import pl.olpinski.petclinic.services.*;
 
 import java.time.LocalDate;
 
@@ -17,13 +14,15 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
 
     public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
-                      SpecialityService specialityService) {
+                      SpecialityService specialityService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -92,6 +91,13 @@ public class DataLoader implements CommandLineRunner {
         owner2.getPets().add(fionaCat);
 
         ownerService.save(owner2);
+
+        Visit catVisit = new Visit();
+        catVisit.setPet(fionaCat);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("Sneezy kitty");
+
+        visitService.save(catVisit);
 
         System.out.println("Loaded Owners...");
 

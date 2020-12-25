@@ -1,10 +1,12 @@
 package pl.olpinski.petclinic.services.map;
 
+import org.springframework.stereotype.Service;
 import pl.olpinski.petclinic.model.Visit;
 import pl.olpinski.petclinic.services.VisitService;
 
 import java.util.Set;
 
+@Service
 public class VisitMapService extends AbstractMapService<Visit, Long> implements VisitService {
 
     @Override

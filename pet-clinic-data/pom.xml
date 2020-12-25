@@ -54,7 +54,7 @@
         <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
     </properties>
 
-    <build>
+    <!--<build>
         <plugins>
             <plugin>
 
@@ -69,6 +69,6 @@
                 </dependencies>
             </plugin>
         </plugins>
-    </build>
+    </build>-->
 
 </project>
